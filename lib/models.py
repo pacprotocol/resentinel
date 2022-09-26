@@ -154,7 +154,7 @@ class GovernanceObject(BaseModel):
             subobj, created = subclass.get_or_create(object_hash=object_hash, defaults=subdikt)
         except Exception as e:
             # in this case, vote as delete, and log the vote in the DB
-            printdbg("Got invalid object from dashd! %s" % e)
+            printdbg("Got invalid object from pacprotocold! %s" % e)
             govobj.vote_delete(dashd)
             return (govobj, None)
 

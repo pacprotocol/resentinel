@@ -1,10 +1,10 @@
-# Dash Sentinel
+# Pacprotocol Sentinel
 
 [![Build Status](https://travis-ci.org/dashpay/sentinel.svg?branch=master)](https://travis-ci.org/dashpay/sentinel)
 
-> An automated governance helper for Dash Masternodes.
+> An automated governance helper for Pacprotocol Masternodes.
 
-Sentinel is an autonomous agent for persisting, processing and automating Dash governance objects and tasks. It is a Python application which runs alongside the DashCore instance on each Dash Masternode.
+Sentinel is an autonomous agent for persisting, processing and automating Pacprotocol governance objects and tasks. It is a Python application which runs alongside the pacprotocold instance on each Pacprotocol Masternode.
 
 ## Table of Contents
 - [Install](#install)
@@ -31,7 +31,7 @@ Make sure Python version 3.6.x or above is installed:
 
     python3 --version
 
-Make sure the local DashCore daemon running is at least version 0.15.0.
+Make sure the local pacprotocol daemon running is at least version 0.15.0.
 
     $ dashd --version | head -n1
 
@@ -70,13 +70,13 @@ With all tests passing and crontab setup, Sentinel will stay in sync with dashd 
 Configuration is done via environment variables. Example:
 
 ```sh
-$ RPCUSER=dash RPCPASSWORD=password RPCHOST=127.0.0.1 RPCPORT=19998 ./venv/bin/python bin/sentinel.py
+$ RPCUSER=dash RPCPASSWORD=password RPCHOST=127.0.0.1 RPCPORT=8891 ./venv/bin/python bin/sentinel.py
 ```
 
-A path to a `dash.conf` file can be specified in `sentinel.conf`:
+A path to a `pacprotocol.conf` file can be specified in `sentinel.conf`:
 
     # warning: deprecated
-    dash_conf=/path/to/dash.conf
+    dash_conf=/path/to/pacprotocol.conf
 
 This is now deprecated and will be removed in a future version. Users are encouraged to update their configurations to use environment variables instead.
 
@@ -93,7 +93,7 @@ To view debug output, set the `SENTINEL_DEBUG` environment variable to anything 
 
 ## Contributing
 
-Please follow the [DashCore guidelines for contributing](https://github.com/dashpay/dash/blob/master/CONTRIBUTING.md).
+Please follow the [pacprotocol guidelines for contributing](https://github.com/dashpay/dash/blob/master/CONTRIBUTING.md).
 
 Specifically:
 
@@ -111,4 +111,4 @@ Specifically:
 
 ## License
 
-Released under the MIT license, under the same terms as DashCore itself. See [LICENSE](LICENSE) for more info.
+Released under the MIT license, under the same terms as pacprotocol itself. See [LICENSE](LICENSE) for more info.

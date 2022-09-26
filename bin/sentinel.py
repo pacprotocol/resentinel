@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 import sys
 import os
 sys.path.append(os.path.normpath(os.path.join(os.path.dirname(__file__), '../lib')))
@@ -110,17 +110,17 @@ def main():
 
     # print version and return if "--version" is an argument
     if options.version:
-        print("Dash Sentinel v%s" % config.sentinel_version)
+        print("Pacprotocol Sentinel v%s" % config.sentinel_version)
         return
 
     # check dashd connectivity
     if not is_dashd_port_open(dashd):
-        print("Cannot connect to dashd. Please ensure dashd is running and the JSONRPC port is open to Sentinel.")
+        print("Cannot connect to pacprotocold. Please ensure pacprotocold is running and the JSONRPC port is open to Sentinel.")
         return
 
     # check dashd sync
     if not dashd.is_synced():
-        print("dashd not synced with network! Awaiting full sync before running Sentinel.")
+        print("pacprotocold not synced with network! Awaiting full sync before running Sentinel.")
         return
 
     # ensure valid masternode
