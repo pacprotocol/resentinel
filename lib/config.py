@@ -3,6 +3,7 @@
 """
 import sys
 import os
+from os.path import exists
 from dash_config import DashConfig
 
 default_sentinel_config = os.path.normpath(
@@ -14,16 +15,12 @@ sentinel_version = "1.7.1"
 
 
 def get_dash_conf():
-    if sys.platform == 'win32':
-        dash_conf = os.path.join(os.getenv('APPDATA'), "pacprotocol/pacprotocol.conf")
+    dash_conf = os.path.expanduser('~') + '/.pacprotocol/testnet3/pacprotocol.conf'
+
+    if exists(dash_conf):
+       pass
     else:
-        home = os.environ.get('HOME')
-
-        dash_conf = os.path.join(home, ".pacprotocol/pacprotocol.conf")
-        if sys.platform == 'darwin':
-            dash_conf = os.path.join(home, "Library/Application Support/pacprotocol/pacprotocol.conf")
-
-    dash_conf = sentinel_cfg.get('dash_conf', dash_conf)
+       dash_conf = os.path.expanduser('~') + '/.pacprotocol/pacprotocol.conf'
 
     return dash_conf
 
